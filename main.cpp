@@ -3,7 +3,7 @@
 #include <climits>
 using namespace std;
 
-int coinVals[3] = {2, 3, 5};
+vector<int> coinVals{2, 3, 5};
 vector<int> minCoinsT;
 
 int minCoinsForAmount(int amount) {
@@ -13,7 +13,7 @@ int minCoinsForAmount(int amount) {
 		return INT_MAX;
 	} else if (minCoinsT[amount] == INT_MAX) {
 		int min = INT_MAX;
-		for (int i=0; i<3 /*.size()*/; ++i) {
+		for (int i=0; i<coinVals.size(); ++i) {
 			int val = coinVals[i];
 			int coins = minCoinsForAmount(amount-val);
 			if (coins < min) {
